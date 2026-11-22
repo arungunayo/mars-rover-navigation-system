@@ -1,0 +1,5 @@
+status=passed
+displacement_m=0.576601
+odom_distance_m=0.575982
+valid_scans=625
+final_nearest_range_m=1.1742

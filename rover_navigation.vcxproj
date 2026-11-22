@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <ItemGroup Label="ProjectConfigurations">
+  <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+  <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+ </ItemGroup>
+ <PropertyGroup Label="Globals"><ProjectGuid>{C720820A-BA5D-4B34-B5A4-35673EAE9BC3}</ProjectGuid><Keyword>Win32Proj</Keyword><WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion></PropertyGroup>
+ <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+ <PropertyGroup Label="Configuration"><ConfigurationType>Application</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries Condition="'$(Configuration)'=='Debug'">true</UseDebugLibraries></PropertyGroup>
+ <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+ <PropertyGroup><OutDir>$(ProjectDir)webots\controllers\rover_navigation\</OutDir><IntDir>$(ProjectDir)build\vs-native\obj\$(ProjectName)\$(Configuration)\</IntDir><LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory></PropertyGroup>
+ <ItemDefinitionGroup><ClCompile><LanguageStandard>stdcpp17</LanguageStandard><WarningLevel>Level4</WarningLevel><ExceptionHandling>Sync</ExceptionHandling><AdditionalIncludeDirectories>$(LOCALAPPDATA)\Programs\Webots\include\controller\c;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories></ClCompile><Link><SubSystem>Console</SubSystem><AdditionalDependencies>$(LOCALAPPDATA)\Programs\Webots\lib\controller\Controller.lib;%(AdditionalDependencies)</AdditionalDependencies></Link></ItemDefinitionGroup>
+ <ItemGroup><ClCompile Include="webots\controllers\rover_navigation\rover_navigation.cpp" /><ClInclude Include="include\planner.hpp" /></ItemGroup>
+ <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
+

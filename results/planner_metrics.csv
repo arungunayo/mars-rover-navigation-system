@@ -1,0 +1,4 @@
+algorithm,cost,nodes_expanded,runtime_ms
+Dijkstra,15.668,1993,0.8501
+A*,15.668,1512,0.9021
+A*_replan,12.5072,995,0.5753

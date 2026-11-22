@@ -1,0 +1,5 @@
+status=goal_reached
+reason=within_goal_tolerance
+x=3.13792
+y=-0.101558
+replans=8

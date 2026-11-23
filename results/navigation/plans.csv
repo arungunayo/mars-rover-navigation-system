@@ -1,0 +1,5 @@
+plan,algorithm,cost,expanded,runtime_ms
+1,Dijkstra,4.92651,5059,43.2636
+1,A*,4.92651,886,11.3649
+2,Dijkstra,3.52553,2228,28.7792
+2,A*,3.52553,201,6.2342

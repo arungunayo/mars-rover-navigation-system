@@ -12,9 +12,11 @@ struct Cell { double elevation=0, roughness=0; bool blocked=false; };
 struct Grid {
   int width, height; double resolution;
   std::vector<Cell> cells;
+  std::vector<unsigned short> blockedMoves;
   Grid(int w,int h,double r):width(w),height(h),resolution(r) {
     if(w<=0 || h<=0 || r<=0) throw std::invalid_argument("Invalid grid dimensions");
     cells.resize(w*h);
+    blockedMoves.resize(w*h,0);
   }
   bool contains(int x,int y) const { return x>=0 && y>=0 && x<width && y<height; }
   int id(int x,int y) const { return y*width+x; }
@@ -50,6 +52,7 @@ inline Result plan(const Grid& g,int start,int goal,bool astar,const Costs& weig
     int x=u%g.width,y=u/g.width;
     for(int dy=-1;dy<=1;++dy) for(int dx=-1;dx<=1;++dx) {
       if((dx==0 && dy==0) || !g.contains(x+dx,y+dy)) continue;
+      if(g.blockedMoves[u] & (1u<<((dy+1)*3+dx+1))) continue;
       int v=g.id(x+dx,y+dy); if(g.cells[v].blocked) continue;
       if(dx && dy && (g.cells[g.id(x+dx,y)].blocked || g.cells[g.id(x,y+dy)].blocked)) continue;
       double length=g.resolution*std::hypot(dx,dy);

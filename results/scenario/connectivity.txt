@@ -1,0 +1,1 @@
+physical_clearance goal_reachable=True reachable_nodes=2414 free_nodes=2485 all_free_nodes_connected=False

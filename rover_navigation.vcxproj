@@ -8,9 +8,15 @@
  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
  <PropertyGroup Label="Configuration"><ConfigurationType>Application</ConfigurationType><PlatformToolset>v145</PlatformToolset><UseDebugLibraries Condition="'$(Configuration)'=='Debug'">true</UseDebugLibraries></PropertyGroup>
  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
- <PropertyGroup><OutDir>$(ProjectDir)webots\controllers\rover_navigation\</OutDir><IntDir>$(ProjectDir)build\vs-native\obj\$(ProjectName)\$(Configuration)\</IntDir><LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory></PropertyGroup>
+ <PropertyGroup><OutDir>$(ProjectDir)webots\controllers\rover_terrain_controller\</OutDir><IntDir>$(ProjectDir)build\vs-native\obj\$(ProjectName)\$(Configuration)\</IntDir><TargetName>rover_terrain_controller</TargetName><LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory></PropertyGroup>
  <ItemDefinitionGroup><ClCompile><LanguageStandard>stdcpp17</LanguageStandard><WarningLevel>Level4</WarningLevel><ExceptionHandling>Sync</ExceptionHandling><AdditionalIncludeDirectories>$(LOCALAPPDATA)\Programs\Webots\include\controller\c;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories></ClCompile><Link><SubSystem>Console</SubSystem><AdditionalDependencies>$(LOCALAPPDATA)\Programs\Webots\lib\controller\Controller.lib;%(AdditionalDependencies)</AdditionalDependencies></Link></ItemDefinitionGroup>
- <ItemGroup><ClCompile Include="webots\controllers\rover_navigation\rover_navigation.cpp" /><ClInclude Include="include\planner.hpp" /></ItemGroup>
+ <ItemGroup><ClCompile Include="webots\controllers\rover_navigation\rover_navigation.cpp" /><ClInclude Include="include\planner.hpp" /><ClInclude Include="include\terrain.hpp" /><ClInclude Include="include\discovery.hpp" /><ClInclude Include="include\obstacles.hpp" /></ItemGroup>
  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
+
+
+
+
+
+
 

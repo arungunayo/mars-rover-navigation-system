@@ -1,0 +1,14 @@
+const fs=require('fs');
+const file='C:/Users/aroha/.codex/visualizations/2026/11/22/01a203ad-33c4-7f00-b321-6811e11da839/rover-point-map.html';
+let html=fs.readFileSync(file,'utf8');
+const profile=JSON.parse(fs.readFileSync('results/scenario/terrain_profile.json','utf8').replace(/^\uFEFF/,''));
+const re=/(<script type="application\/json" id="rover-point-map-data">)([\s\S]*?)(<\/script>)/;
+const data=JSON.parse(html.match(re)[2]);
+Object.assign(data,{heights:profile.heights,terrainProfile:profile.profile,slopeReductionDegrees:profile.slopeReductionDegrees,plannerMaxGrade:profile.plannerMaxGrade,maxTerrainGrade:profile.connectedGrade});
+html=html.replace(re,(_,a,b,c)=>a+JSON.stringify(data)+c);
+html=html.replace('slope-capped Moose terrain','original-shaped Moose terrain');
+html=html.replace("' -TerrainProfile connected -MaxTerrainGrade '+data.maxTerrainGrade", "' -TerrainProfile '+data.terrainProfile+' -SlopeReductionDegrees '+data.slopeReductionDegrees+' -PlannerMaxGrade '+data.plannerMaxGrade+' -MaxTerrainGrade '+data.maxTerrainGrade");
+html=html.replace('Keep the connected slope-capped Moose terrain, working controller, speed and LIDAR panel.', 'Keep the original-shaped Moose terrain with its maximum grid slope reduced by '+data.slopeReductionDegrees+' degrees, working controller, speed and LIDAR panel.');
+html=html.replace('Check that all free grid cells and selected endpoints stay connected. If needed, try another rock seed without moving my selected endpoints.', 'Check whether the selected endpoints are connected under the current rover slope limit and report the result. Preserve the terrain profile and my selected endpoints.');
+fs.writeFileSync(file,html);
+console.log('[MAP] Updated original-reduced terrain and regeneration command.');

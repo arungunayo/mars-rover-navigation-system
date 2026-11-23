@@ -18,6 +18,7 @@ PROTO Sojourner [
   field SFBool     supervisor      FALSE       # Is `Robot.supervisor`.
   field SFBool     synchronization TRUE        # Is `Robot.synchronization`.
   field MFNode     extensionSlot   []          # Extends the robot with new nodes in the extension slot.
+  field SFFloat   wheelMaxSpeed    0.6         # Adjustable simulation wheel-speed limit.
 ]
 {
   Robot {
@@ -304,7 +305,7 @@ PROTO Sojourner [
                           device [
                             RotationalMotor {
                               name "BackLeftWheel"
-                              maxVelocity 0.6
+                              maxVelocity IS wheelMaxSpeed
                               maxTorque 2
                             } PositionSensor { name "BackLeftWheel_encoder" }
                           ]
@@ -430,7 +431,7 @@ PROTO Sojourner [
                     device [
                       RotationalMotor {
                         name "MiddleLeftWheel"
-                        maxVelocity 0.6
+                        maxVelocity IS wheelMaxSpeed
                         maxTorque 2
                       } PositionSensor { name "MiddleLeftWheel_encoder" }
                     ]
@@ -655,7 +656,7 @@ PROTO Sojourner [
                     device [
                       RotationalMotor {
                         name "FrontLeftWheel"
-                        maxVelocity 0.6
+                        maxVelocity IS wheelMaxSpeed
                         maxTorque 2
                       } PositionSensor { name "FrontLeftWheel_encoder" }
                     ]
@@ -814,7 +815,7 @@ PROTO Sojourner [
                           device [
                             RotationalMotor {
                               name "BackRightWheel"
-                              maxVelocity 0.6
+                              maxVelocity IS wheelMaxSpeed
                               maxTorque 2
                             } PositionSensor { name "BackRightWheel_encoder" }
                           ]
@@ -888,7 +889,7 @@ PROTO Sojourner [
                     device [
                       RotationalMotor {
                         name "MiddleRightWheel"
-                        maxVelocity 0.6
+                        maxVelocity IS wheelMaxSpeed
                         maxTorque 2
                       } PositionSensor { name "MiddleRightWheel_encoder" }
                     ]
@@ -1139,7 +1140,7 @@ PROTO Sojourner [
                     device [
                       RotationalMotor {
                         name "FrontRightWheel"
-                        maxVelocity 0.6
+                        maxVelocity IS wheelMaxSpeed
                         maxTorque 2
                       } PositionSensor { name "FrontRightWheel_encoder" }
                     ]
@@ -1292,5 +1293,6 @@ PROTO Sojourner [
     }
   }
 }
+
 
 

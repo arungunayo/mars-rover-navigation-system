@@ -4,3 +4,7 @@ __pycache__/
 *.vcxproj.user
 webots/controllers/**/*.exe
 webots/controllers/**/*.obj
+webots/controllers/**/*.pdb
+webots/controllers/**/*.ilk
+webots/worlds/.*.wbproj
+webots/worlds/rover_validation.wbt
